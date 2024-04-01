@@ -1,0 +1,37 @@
+:root {
+  --primary: #eee;
+  --secondary: #00adb5;
+  --bg: #222831;
+  --dark: #393e46;
+  --light: #fff;
+  --danger: #dc3545;
+  --success: #44f759;
+  --info: #19a8be;
+  --warning: #fccf49;
+
+  font-family: cursive, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  background-color: var(--bg);
+  color: var(--primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+body {
+  background-color: var(--bg) !important;
+  color: var(--primary) !important;
+}
+.t {
+  border: 1px solid tomato;
+}
