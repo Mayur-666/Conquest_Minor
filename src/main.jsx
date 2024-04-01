@@ -9,11 +9,11 @@ import "./index.css";
 const chakraTheme = extendTheme({
   colors: {
     brands: {
-      primary: " #eee",
-      secondary: " #00adb5",
-      bg: " #222831",
-      dark: " #393e46",
-      light: " #fff",
+      bg:"#0b0C10",
+      pri: "#45A29E",
+      sec: "#66FCF1",
+      light:"#C5C6C7",
+      dark: "#1f2833",
       danger: " #dc3545",
       success: " #44f759",
       info: " #19a8be",

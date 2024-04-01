@@ -5,6 +5,7 @@ import InterviewPage from "./pages/Interview Page/InterviewPage";
 import ReportPage from "./pages/Report Page/ReportPage";
 import Navbar from "./components/Navigation/Navbar";
 import JobCategory from "./pages/Category Page/JobCategory";
+import RegisterLogin from "./pages/Login Page/RegisterLogin"
 
 function App() {
   const isAuthUser = true;
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/interview" element={<InterviewPage />} />
         <Route exact path="/category" element={<JobCategory />} />
         <Route exact path="/report" element={<ReportPage />} />
+        <Route exact path="/login" element={<RegisterLogin />} />
       </Routes>
     </>
   );
