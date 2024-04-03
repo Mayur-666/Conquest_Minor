@@ -2,3 +2,24 @@
   width: 10rem;
   filter: brightness(50);
 }
+.sidebar_btn:hover {
+  color: aqua;
+}
+.sidebar_tooltip {
+  display: none;
+  position: absolute;
+  transform: translateY(120%);
+  font-size: 0.8rem;
+}
+@media screen and (max-width: 1050px) {
+  .sidebar_container,
+  .sidebar {
+    width: 8vw;
+  }
+  .sidebar_text {
+    display: none;
+  }
+  .sidebar_btn:hover .sidebar_tooltip {
+    display: block;
+  }
+}

@@ -1,12 +1,16 @@
 import { useRef, useState } from "react";
 import "./RegisterLogin.css";
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
-import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
+import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
 import { Link } from "react-router-dom";
-import {Box, Container} from "@chakra-ui/react"
+import { Box, Container } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { login } from "../../actions/userAction.js";
 
 const RegisterLogin = () => {
+  // const dispatch = useDispatch();
+
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [avatar, setAvatar] = useState();
@@ -16,7 +20,6 @@ const RegisterLogin = () => {
     email: "",
     password: "",
   });
-
   const { name, email, password } = user;
 
   const loginTab = useRef(null);
@@ -42,6 +45,7 @@ const RegisterLogin = () => {
 
   const loginSubmit = (e) => {
     e.preventDefault();
+    // dispatch(login(loginEmail, loginPassword));
     console.log("Login Submitted");
   };
 
@@ -76,22 +80,24 @@ const RegisterLogin = () => {
 
   return (
     <>
-      <Box 
-      width={"100vw"}
-      height={"100vh"}
-      max-width="100%"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      position="fixed"
-      top="0"
-      left="0">
-        <Box color="brands.primary" 
-        width="30vw"
-        height="70vh"
-        margin="10px"
-        overflow="hidden"
-        borderRadius="30px"
+      <Box
+        width={"100vw"}
+        height={"100vh"}
+        max-width="100%"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        position="fixed"
+        top="0"
+        left="0"
+      >
+        <Box
+          color="brands.primary"
+          width="30vw"
+          height="70vh"
+          margin="10px"
+          overflow="hidden"
+          borderRadius="30px"
         >
           <Box>
             <Container className="rl-toggle" display="flex" height="3vmax">

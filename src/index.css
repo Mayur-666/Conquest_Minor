@@ -1,8 +1,8 @@
 :root {
-  --bg:#0B0C10;
-  --pri: #45A29E;
-  --sec: #66FCF1;
-  --light:#C5C6C7;
+  --bg: #0b0c10;
+  --pri: #0ccdc3;
+  --sec: #00ffff;
+  --light: #c5c6c7;
   --dark: #1f2833;
   --danger: #dc3545;
   --success: #44f759;
@@ -31,6 +31,13 @@
 body {
   background-color: var(--bg) !important;
   color: var(--light) !important;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+#root {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .t {
   border: 1px solid tomato;

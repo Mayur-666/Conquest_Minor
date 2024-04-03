@@ -1,13 +1,17 @@
 import "./Nav.css";
-import { Box, Button, Flex } from "@chakra-ui/react";
-import ControlledSpeedDial from "./SpeedDial";
+import { Box, Button } from "@chakra-ui/react";
+import UserSpeedDial from "./SpeedDial";
 
 function Navbar({ isAuthUser }) {
   return (
-    <Box className="t">
+    <Box className="t" zIndex={9} backdropBlur={"10px"}>
       <Box
+        backdropBlur={"10px"}
+        zIndex={10}
         width={"95%"}
-        height={"12vh"}
+        height={"10vh"}
+        minHeight={"80px"}
+        maxHeight={"150px"}
         margin={"0 auto"}
         display={"flex"}
         alignItems={"center"}
@@ -15,7 +19,7 @@ function Navbar({ isAuthUser }) {
         className="t"
       >
         <img className="logo" src="/logo.png" />
-        {isAuthUser ? <ControlledSpeedDial /> : <Button>Login</Button>}
+        {isAuthUser ? <UserSpeedDial /> : <Button>Login</Button>}
       </Box>
     </Box>
   );
