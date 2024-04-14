@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import { Provider } from "react-redux";
-// import store from "./store/store.js";
+import { Provider } from "react-redux";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css";
+import store from "./store/store.js";
 
 const chakraTheme = extendTheme({
   colors: {
@@ -28,14 +28,14 @@ const muiTheme = createTheme();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
-    <ChakraProvider theme={chakraTheme}>
-      <ThemeProvider theme={muiTheme}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ThemeProvider>
-    </ChakraProvider>
-    {/* </Provider> */}
+    <Provider store={store}>
+      <ChakraProvider theme={chakraTheme}>
+        <ThemeProvider theme={muiTheme}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ThemeProvider>
+      </ChakraProvider>
+    </Provider>
   </React.StrictMode>
 );

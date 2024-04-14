@@ -8,12 +8,19 @@ import JobCategory from "./pages/Category Page/JobCategory";
 import RegisterLogin from "./pages/Login Page/RegisterLogin";
 import Login from "./pages/Login Page/Login";
 import History from "./pages/History Page/History";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import store from "./store/store.js";
+import { loadUser } from "./actions/userActions.js";
 
 function App() {
-  const isAuthUser = true;
+  const isAuth = useSelector((state) => state.isAuth);
+  useEffect(() => {
+    store.dispatch(loadUser());
+  });
   return (
     <>
-      <Navbar isAuthUser={isAuthUser} />
+      <Navbar isAuthUser={isAuth} />
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
         <Route exact path="/home" element={<Dashboard />} />

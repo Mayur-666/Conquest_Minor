@@ -1,8 +1,12 @@
 import "./Nav.css";
 import { Box, Button } from "@chakra-ui/react";
 import UserSpeedDial from "./SpeedDial";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-function Navbar({ isAuthUser }) {
+function Navbar() {
+  const isAuthUser = useSelector((state) => state.isAuth);
+  console.log(isAuthUser);
   return (
     <Box className="t" zIndex={9} backdropBlur={"10px"}>
       <Box
@@ -19,7 +23,7 @@ function Navbar({ isAuthUser }) {
         className="t"
       >
         <img className="logo" src="/logo.png" />
-        {isAuthUser ? <UserSpeedDial /> : <Button>Login</Button>}
+        {isAuthUser ? <UserSpeedDial /> : <Link to={"/register"}>Login</Link>}
       </Box>
     </Box>
   );

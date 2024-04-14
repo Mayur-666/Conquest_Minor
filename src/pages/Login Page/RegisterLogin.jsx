@@ -6,15 +6,15 @@ import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
 import { Link } from "react-router-dom";
 import { Box, Container } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { login } from "../../actions/userAction.js";
+import { login, register } from "../../actions/userActions.js";
 
 const RegisterLogin = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [avatar, setAvatar] = useState();
-  const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
+  const [avatarPreview, setAvatarPreview] = useState("/avatar.jpg");
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -43,20 +43,24 @@ const RegisterLogin = () => {
     }
   };
 
-  const loginSubmit = (e) => {
+  const loginSubmit = async (e) => {
     e.preventDefault();
-    // dispatch(login(loginEmail, loginPassword));
     console.log("Login Submitted");
+    console.log(loginEmail);
+    console.log(loginPassword);
+    dispatch(login({ loginEmail, loginPassword }));
   };
 
   const registerSubmit = (e) => {
     e.preventDefault();
-    const myForm = new FormData();
-    myForm.set("name", name);
-    myForm.set("email", email);
-    myForm.set("password", password);
-    myForm.set("avatar", avatar);
-    console.log("Register Submitted");
+    // const myForm = new FormData();
+    // myForm.set("name", name);
+    // myForm.set("email", email);
+    // myForm.set("password", password);
+    // myForm.set("avatar", avatar);
+    // console.log("Register Submitted");
+
+    dispatch(register(user));
   };
 
   const registerDataChange = (e) => {
@@ -170,7 +174,7 @@ const RegisterLogin = () => {
               />
             </div>
             <div id="registerImage">
-              <img src={"/user.png"} alt="Avatar Preview" />
+              <img src={avatarPreview} alt="Avatar Preview" />
               <input
                 type="file"
                 name="avatar"
