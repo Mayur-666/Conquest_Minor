@@ -1,0 +1,8 @@
+@media screen and (max-width: 800px) {
+  .dashboard_profile {
+    flex-direction: column;
+  }
+  .dashboard_profile-name {
+    font-size: 1.2rem;
+  }
+}

@@ -1,9 +1,9 @@
 :root {
-  --primary: #eee;
-  --secondary: #00adb5;
-  --bg: #222831;
-  --dark: #393e46;
-  --light: #fff;
+  --bg: #0b0c10;
+  --pri: #0ccdc3;
+  --sec: #00ffff;
+  --light: #c5c6c7;
+  --dark: #1f2833;
   --danger: #dc3545;
   --success: #44f759;
   --info: #19a8be;
@@ -30,7 +30,14 @@
 }
 body {
   background-color: var(--bg) !important;
-  color: var(--primary) !important;
+  color: var(--light) !important;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+#root {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .t {
   border: 1px solid tomato;

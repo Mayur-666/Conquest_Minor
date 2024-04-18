@@ -1,77 +1,60 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+import "./Nav.css";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import { Box, Button, Icon, Text } from "@chakra-ui/react";
+import Dashboard from "@mui/icons-material/Dashboard";
+import LogoutIcon from "@mui/icons-material/Logout";
+import SettingsIcon from "@mui/icons-material/Settings";
+import HistoryIcon from "@mui/icons-material/History";
+import NotStartedIcon from "@mui/icons-material/NotStarted";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
+  const actions = [
+    { icon: <Dashboard />, name: "Dashboard", link: "/home" },
+    { icon: <NotStartedIcon />, name: "Interview", link: "/interview" },
+    { icon: <HistoryIcon />, name: "History", link: "/history" },
+    { icon: <SettingsIcon />, name: "Settings", link: "/settings" },
+    { icon: <LogoutIcon />, name: "Logout", link: "/" },
+  ];
   return (
     <>
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-        <AppBar
-          position="fixed"
-          sx={{
-            width: `calc(100% - ${drawerWidth}px)`,
-            ml: `${drawerWidth}px`,
-          }}
+      <Box
+        display={"flex"}
+        bg={"brands.bg"}
+        className="t sidebar_container"
+        width={"15vw"}
+        height={"88vh"}
+        alignItems={"center"}
+        justifyContent={"flex-start"}
+      >
+        <Box
+          width={"15vw"}
+          display={"flex"}
+          justifyContent="center"
+          bg={"brands.bg"}
+          color="white"
+          p={2}
+          fontSize={"1.3rem"}
+          className="t sidebar"
         >
-          <Toolbar>
-            <Typography variant="h6" noWrap component="div">
-              Permanent drawer
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          sx={{
-            width: drawerWidth,
-            flexShrink: 0,
-            "& .MuiDrawer-paper": {
-              width: drawerWidth,
-              boxSizing: "border-box",
-            },
-          }}
-          variant="permanent"
-          anchor="left"
-        >
-          <Toolbar />
-          <Divider />
-          <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
+          <Box margin={"4rem 3rem"}>
+            {actions.map((action) => (
+              <Box margin={"1rem 0"} key={action.name}>
+                <Link to={action.link}>
+                  <Button className="sidebar_btn">
+                    <Icon margin={"1rem"} fontSize={"2rem"}>
+                      {action.icon}
+                    </Icon>
+                    <Text className="sidebar_tooltip">{action.name}</Text>
+                    <Text className="sidebar_text">{action.name}</Text>
+                  </Button>
+                </Link>
+              </Box>
             ))}
-          </List>
-          <Divider />
-          <List>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-        </Drawer>
+          </Box>
+        </Box>
       </Box>
     </>
   );
