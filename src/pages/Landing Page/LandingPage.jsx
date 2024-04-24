@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; 
 import {
   Container,
   Box,
@@ -10,6 +11,8 @@ import {
   GridItem,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { Pages } from "@mui/icons-material";
+import RegisterLogin from "../Login Page/RegisterLogin";
 
 const features = [
   {
@@ -92,39 +95,6 @@ const TestimonialBox = ({ name, testimonial }) => (
   </Box>
 );
 
-const Footer = () => (
-  <Box bg="black" color="white" py={12}>
-    <Container maxW="7xl">
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
-        <Box>
-          <Heading fontSize="lg" fontFamily="sans-serif" mb={4}>
-            Resources
-          </Heading>
-          <Text fontFamily="sans-serif">Link 1</Text>
-          <Text fontFamily="sans-serif">Link 2</Text>
-          <Text fontFamily="sans-serif">Link 3</Text>
-        </Box>
-        <Box>
-          <Heading fontSize="lg" fontFamily="sans-serif" mb={4}>
-            Platform
-          </Heading>
-          <Text fontFamily="sans-serif">Link 1</Text>
-          <Text fontFamily="sans-serif">Link 2</Text>
-          <Text fontFamily="sans-serif">Link 3</Text>
-        </Box>
-        <Box>
-          <Heading fontSize="lg" fontFamily="sans-serif" mb={4}>
-            Community
-          </Heading>
-          <Text fontFamily="sans-serif">Link 1</Text>
-          <Text fontFamily="sans-serif">Link 2</Text>
-          <Text fontFamily="sans-serif">Link 3</Text>
-        </Box>
-      </SimpleGrid>
-    </Container>
-  </Box>
-);
-
 const LandingPage = () => {
   return (
     <Container maxW="7xl">
@@ -156,6 +126,8 @@ const LandingPage = () => {
           </Text>
           <Flex justify="center" mt={6}>
             <Button
+              as={Link}
+              to={"/register"}
               padding={2}
               borderRadius={5}
               bg="orange.500"
@@ -259,15 +231,18 @@ const LandingPage = () => {
               border={"1px solid orange"}
             >
               <Heading fontSize="4xl" mb={4} textAlign={"left"} fontFamily={"sans-serif"}>
-                Basic
+                Free
               </Heading>
               <Text fontSize="2xl" mb={4} textAlign={"left"} fontFamily={"sans-serif"}>
-                Rs 299
+                Rs 0
               </Text>
               <Text fontSize="md" mb={4} textAlign={"left"} fontFamily={"sans-serif"}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+               1) Get free access.<br/>
+               2) Get 2 interviews in a day.
               </Text>
               <Button
+                as={Link}
+                to="/register"
                 bg="black"
                 color="white"
                 _hover={{ bg: "orange.600" }}
@@ -306,7 +281,8 @@ const LandingPage = () => {
                 Rs 500
               </Text>
               <Text fontSize="md" mb={4} textAlign={"left"} fontFamily={"sans-serif"}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                1) Get 10 interviews in a day.<br/>
+                2) ------------
               </Text>
               <Button
                 bg="black"
@@ -367,7 +343,36 @@ const LandingPage = () => {
       </SimpleGrid>
 
       {/* Footer Section */}
-      <Footer />
+      <Box bg="black" color="white" py={12} mt={12}>
+        <Container maxW="7xl">
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+            <Box>
+              <Heading fontSize="lg" fontFamily="sans-serif" mb={4}>
+                Resources
+              </Heading>
+              <Text fontFamily="sans-serif">Link 1</Text>
+              <Text fontFamily="sans-serif">Link 2</Text>
+              <Text fontFamily="sans-serif">Link 3</Text>
+            </Box>
+            <Box>
+              <Heading fontSize="lg" fontFamily="sans-serif" mb={4}>
+                Platform
+              </Heading>
+              <Text fontFamily="sans-serif">Link 1</Text>
+              <Text fontFamily="sans-serif">Link 2</Text>
+              <Text fontFamily="sans-serif">Link 3</Text>
+            </Box>
+            <Box>
+              <Heading fontSize="lg" fontFamily="sans-serif" mb={4}>
+                Community
+              </Heading>
+              <Text fontFamily="sans-serif">Link 1</Text>
+              <Text fontFamily="sans-serif">Link 2</Text>
+              <Text fontFamily="sans-serif">Link 3</Text>
+            </Box>
+          </SimpleGrid>
+        </Container>
+      </Box>
     </Container>
   );
 };
